@@ -1,14 +1,15 @@
 {
-  "name": "tutorial",
+  "name": "Form tutorial",
   "version": "1.0.0",
-  "description": "Installing Hapi, Creating a server, Adding routes, Creating static pages and contents, using plugins",
+ "description": "This project demonstrates how to use forms in Node.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+"start": "node server.js"
   },
   "repository": {
     "type": "git",
-    "url": "Mick04"
+    "url": "https://github.com/Mick04/my_first_form
   },
   "author": "Mick Cave",
   "license": "ISC",
