@@ -10,20 +10,19 @@ var server = http.createServer(function (req, res) {
         displayForm(res);
 	console.log("GET");
     } else if (req.method.toLowerCase() == 'post') {
-	console.log("post");
-	processFormFieldsIndividual(req, res);
+//	processFormFieldsIndividual(req, res);
         processAllFieldsOfTheForm(req, res);
     }
 
 });
 
 function displayForm(res) {
+console.log("text/html1");
     fs.readFile('form.html', function (err, data) {
         res.writeHead(200, {
             'Content-Type': 'text/html',
                 'Content-Length': data.length
         });
-	console.log("text/html");
         res.write(data);
         res.end();
     });
@@ -48,29 +47,5 @@ function processAllFieldsOfTheForm(req, res) {
     });
 }
 
-function processFormFieldsIndividual(req, res) {
-    //Store the data from the fields in your data store.
-    //The data store could be a file or database or any other store based
-    //on your application.
-    var fields = [];
-    var form = new formidable.IncomingForm();
-    form.on('field', function (field, value) {
-        console.log(field);
-        console.log(value);
-        fields[field] = value;
-	console.log(fields);
-    });
-
-    form.on('end', function () {
-        res.writeHead(200, {
-            'content-type': 'text/plain'
-        });
-        res.write('received the data:\n\n');
-        res.end(util.inspect({
-            fields: fields
-        }));
-    });
-    form.parse(req);
-}
 server.listen(1185);
 console.log("server listening on 1185");
